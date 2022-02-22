@@ -3,10 +3,10 @@ import argparse
 from transformers import RobertaTokenizer
 from syndicai import PythonPredictor
 
-tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
+# tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
 sample_data = (
     "My name is Nwoke Tochukwu, I'm a Machine Learning Engineer "
-    f"What skillsets are {tokenizer.mask_token} to be a software Engineer."
+    "What skillsets are <mask> to be a software Engineer."
 )
 
 

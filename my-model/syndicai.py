@@ -41,7 +41,7 @@ class PythonPredictor:
         for token in top_tokens:
             word = self.tokenizer.decode([token])
             new_sentence = payload["text"].replace(self.tokenizer.mask_token, word)
-            print(new_sentence)
-        # print(f_token)
+            # print(new_sentence)
+        
 
-        return "Done!!!"
+        return new_sentence
