@@ -1,12 +1,13 @@
 import os
 import argparse
-from transformers import RobertaTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
 from syndicai import PythonPredictor
 
 # tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
 sample_data = (
-    "My name is Nwoke Tochukwu, I'm a Machine Learning Engineer "
-    "What skillsets are <mask> to be a software Engineer."
+ "In a shocking finding, scientists discovered a herd of unicorns living in a remote, "
+ "previously unexplored valley, in the Andes Mountains. Even more surprising to the "
+ "researchers was the fact that the unicorns spoke perfect English."
 )
 
 
