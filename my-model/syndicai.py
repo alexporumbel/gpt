@@ -15,8 +15,8 @@ class PythonPredictor:
         print(f"using device: {device}")
 
         self.device = device
-        self.model = RobertaForMaskedLM.from_pretrained('EleutherAI/gpt-j-6B',return_dict = True)
-        self.tokenizer = RobertaTokenizer.from_pretrained('EleutherAI/gpt-j-6B')
+        self.model = AutoModelForCausalLM.from_pretrained('EleutherAI/gpt-j-6B',return_dict = True)
+        self.tokenizer = AutoTokenizer.from_pretrained('EleutherAI/gpt-j-6B')
 
 
 
