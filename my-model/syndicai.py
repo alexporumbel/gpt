@@ -31,17 +31,12 @@ class PythonPredictor:
         """
         # gen_tokens = self.model.generate(payload["text"], do_sample=True, temperature=0.9, max_length=100)
         # self.tokenizer.batch_decode(gen_tokens)[0]
-        inputs = self.tokenizer.encode_plus(payload["text"], return_tensors="pt")
-        mask_token_index = torch.where(inputs["input_ids"][0] == self.tokenizer.mask_token_id)
+        input_ids = self.tokenizer(payload["text"], return_tensors="pt").input_ids
+        gen_tokens = self.model.generate(
+        input_ids,
+        temperature=0.9,
+        max_length=300,
+        )
+        gen_text = self.tokenizer.batch_decode(gen_tokens)[0]
 
-        token_logits = self.model(**inputs).logits
-        mask_token_logits = token_logits[0, mask_token_index, :]
-        top_tokens = torch.topk(mask_token_logits, 1, dim=1).indices[0].tolist()
-        # f_token = self.tokenizer.decode([top_tokens])[0]
-        for token in top_tokens:
-            word = self.tokenizer.decode([token])
-            new_sentence = payload["text"].replace(self.tokenizer.mask_token, word)
-            # print(new_sentence)
-        
-
-        return new_sentence
+        return gen_text
