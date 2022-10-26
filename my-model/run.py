@@ -1,6 +1,6 @@
 import os
 import argparse
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import GPTNeoForCausalLM, GPT2Tokenizer
 from syndicai import PythonPredictor
 
 # tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
