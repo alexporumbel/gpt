@@ -1,5 +1,5 @@
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import GPTNeoForCausalLM, GPT2Tokenizer
 
 
 
@@ -15,8 +15,8 @@ class PythonPredictor:
         print(f"using device: {device}")
 
         self.device = device
-        self.model = AutoModelForCausalLM.from_pretrained('EleutherAI/gpt-j-6B',return_dict = True)
-        self.tokenizer = AutoTokenizer.from_pretrained('EleutherAI/gpt-j-6B')
+        self.model = GPTNeoForCausalLM.from_pretrained("EleutherAI/gpt-neo-1.3B")
+        self.tokenizer = GPT2Tokenizer.from_pretrained("EleutherAI/gpt-neo-1.3B")
 
 
 
