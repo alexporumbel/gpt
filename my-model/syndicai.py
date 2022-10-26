@@ -1,5 +1,5 @@
 import torch
-from transformers import RobertaTokenizer, RobertaForMaskedLM
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 
@@ -15,8 +15,8 @@ class PythonPredictor:
         print(f"using device: {device}")
 
         self.device = device
-        self.model = RobertaForMaskedLM.from_pretrained('roberta-base',return_dict = True)
-        self.tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
+        self.model = RobertaForMaskedLM.from_pretrained('EleutherAI/gpt-j-6B',return_dict = True)
+        self.tokenizer = RobertaTokenizer.from_pretrained('EleutherAI/gpt-j-6B')
 
 
 
